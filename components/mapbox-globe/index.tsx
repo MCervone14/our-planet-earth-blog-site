@@ -4,9 +4,7 @@
 import { useRef, useState, useEffect } from "react";
 import { features } from "./marker-points-info";
 import mapboxgl from "!mapbox-gl"; // eslint-disable-line import/no-webpack-loader-syntax
-// mapboxgl.accessToken = process.env.NEXT_PUBLIC_MY_MAPBOX_API_TOKEN;
-mapboxgl.accessToken =
-  "pk.eyJ1IjoibWdjMjMiLCJhIjoiY2xzdjllOWc4MmRjbTJrbXIxMWt4YW9yNCJ9.UK5CPZT6cjgUzl_4MEHh_Q";
+mapboxgl.accessToken = process.env.NEXT_PUBLIC_MY_MAPBOX_API_TOKEN;
 
 const MapBoxGlobe = () => {
   const mapContainer = useRef(null);
