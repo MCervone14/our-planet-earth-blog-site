@@ -9,7 +9,7 @@ type ListItemProps = {
 const ListItem = ({ post }: ListItemProps) => {
   const { id, excerpt, title, date } = post;
   return (
-    <li className="mt-4 text-2xl flex flex-col items-center justify-center lg:flex-row w-full">
+    <li className="mt-4 text-2xl flex flex-col items-center justify-center lg:flex-row w-full gap-5">
       <Image
         src={`https://raw.githubusercontent.com/MCervone14/our-planet-earth-articles/main${post.image}`}
         alt={post.id}

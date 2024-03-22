@@ -20,13 +20,13 @@ export default function RootLayout({
   return (
     <html lang="en">
       <body
-        className={`${GeistSans.className} max-w-screen-2xl mx-auto flex flex-col items-center p-4`}
+        className={`${GeistSans.className}  mx-auto flex flex-col items-center `}
       >
-        <main className="w-full mx-auto">
+        <main className="w-full mx-auto max-w-screen-2xl">
           <Navbar />
           {children}
-          <Footer />
         </main>
+        <Footer />
       </body>
     </html>
   );

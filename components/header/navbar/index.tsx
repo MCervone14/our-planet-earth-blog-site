@@ -48,11 +48,11 @@ const Navbar = () => {
             <DropdownMenuRadioItem value="article-of-the-month">
               Article of the Month
             </DropdownMenuRadioItem>
-            <DropdownMenuRadioItem value="Recent Articles">
-              Recent Articles
-            </DropdownMenuRadioItem>
             <DropdownMenuRadioItem value="All Articles">
-              All Articles
+              Articles
+            </DropdownMenuRadioItem>
+            <DropdownMenuRadioItem value="Laudato-Si">
+              Learn More About Laudato Si
             </DropdownMenuRadioItem>
           </DropdownMenuRadioGroup>
         </DropdownMenuContent>
@@ -76,18 +76,18 @@ const Navbar = () => {
                 </li>
                 <ListItem
                   href={`/articles/featured-article`}
-                  title="Featured Article"
+                  title="Article of the Month"
                 >
                   The latest article on how to care for our planet earth.
                 </ListItem>
-                <ListItem
-                  href="/articles/recent-articles"
-                  title="Recent Articles"
-                >
-                  The last 10 articles on how to care for our planet earth.
-                </ListItem>
-                <ListItem href="/articles" title="All Articles">
+                <ListItem href="/articles" title="Articles">
                   The complete list of Our Planet Earth articles.
+                </ListItem>
+                <ListItem
+                  href="/laudato-si"
+                  title="Learn More About Laudato Si"
+                >
+                  Learn more about the encyclical letter by Pope Francis.
                 </ListItem>
               </ul>
             </NavigationMenuContent>

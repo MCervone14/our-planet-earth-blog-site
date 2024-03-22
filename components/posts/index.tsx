@@ -1,9 +1,10 @@
-import { getPostsMeta } from "@/lib/posts";
 import ListItem from "./ListItem";
 
-const Posts = async () => {
-  const posts = await getPostsMeta();
+interface PostsProps {
+  posts: Meta[];
+}
 
+const Posts = async ({ posts }: PostsProps) => {
   if (!posts) {
     return <p className="mt-10 text-center">Sorry, no posts available</p>;
   }

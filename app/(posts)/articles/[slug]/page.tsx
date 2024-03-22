@@ -45,10 +45,12 @@ const ArticlesPage = async ({ params: { slug } }: ArticlesPageProps) => {
   });
 
   return (
-    <article className="prose prose-xl mx-auto">
+    <article className="prose prose-xl  mx-auto">
       <h1 className="mb-4">{meta.title}</h1>
       <p className="">{format(new Date(meta.date), "PPPP")}</p>
-      <section>{content}</section>
+      <section className="prose-a:text-blue-700 hover:prose-a:text-blue-600">
+        {content}
+      </section>
       <Button className="prose-a:text-white prose-a:no-underline">
         <Link href="/articles">Back to Articles</Link>
       </Button>
