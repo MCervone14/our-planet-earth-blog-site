@@ -2,6 +2,7 @@
 
 import { useState } from "react";
 import Image from "next/image";
+import { Button } from "../ui/button";
 
 const LaudatoSiCategories = [
   {
@@ -72,56 +73,44 @@ const LaudatoSiCategories = [
 const LaudatoSiGoals = () => {
   const [isSelected, setIsSelected] = useState("0");
   return (
-    <div className="w-full flex flex-wrap justify-center items-center flex-col lg:flex-row gap-10 z-10 p-5">
-      {LaudatoSiCategories.map((category) => (
-        <div
-          id={category.id}
-          key={category.id}
-          className={`${
-            isSelected === category.id
-              ? "relative animate-fade-right bg-white rounded-lg order-first "
-              : "bg-transparent relative"
-          }`}
-          onClick={(e) => {
-            setIsSelected(e.currentTarget.id);
-          }}
-        >
-          <div
-            className={`flex flex-col flex-nowrap lg:flex-row justify-center gap-10 items-center relative ${
-              isSelected === category.id && "h-[500px]"
-            }`}
+    <div className="flex flex-col lg:flex-row w-full justify-center items-start gap-10 p-5">
+      <div className="flex flex-col gap-2">
+        {LaudatoSiCategories.map((category) => (
+          <Button
+            variant="default"
+            key={category.id}
+            onClick={() => setIsSelected(category.id)}
           >
+            {category.title}
+          </Button>
+        ))}
+      </div>
+      <div className="flex-1">
+        {LaudatoSiCategories.filter(
+          (category) => category.id === isSelected
+        ).map((category) => (
+          <div key={category.id} className="h-[650px] relative p-5">
             <Image
               src={category.icon}
               alt={category.title}
-              width={150}
-              height={150}
-              className={`z-10 ${
-                isSelected === category.id
-                  ? "w-[300px] h-[300px] object-cover rounded-xl"
-                  : "hover:scale-110 transform transition duration-500 ease-in-out"
-              }`}
+              width={200}
+              height={200}
+              placeholder="blur"
+              blurDataURL={category.image}
+              className="object-cover p-5 mx-auto  rounded-xl"
             />
-            <p
-              className={`w-1/2 text-2xl z-10 bg-white bg-opacity-70 rounded p-5 animate-in duration-500 ${
-                isSelected === category.id ? "block" : "hidden"
-              }`}
-            >
+            <p className="bg-white bg-opacity-70 w-full lg:w-1/2 mx-auto rounded p-5">
               {category.description}
             </p>
             <Image
               src={category.image}
               alt={category.title}
               fill
-              className={
-                isSelected === category.id
-                  ? " object-cover block rounded-xl"
-                  : "hidden"
-              }
+              className="object-cover rounded-xl -z-10"
             />
           </div>
-        </div>
-      ))}
+        ))}
+      </div>
     </div>
   );
 };
