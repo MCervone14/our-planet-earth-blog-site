@@ -1,6 +1,6 @@
 "use client";
 
-import { forwardRef, useEffect, useState } from "react";
+import { forwardRef, useState } from "react";
 import Link from "next/link";
 import {
   NavigationMenu,
@@ -24,15 +24,12 @@ import { Button } from "@/components/ui/button";
 import { cn } from "@/lib/utils";
 import Logo from "../logo";
 import { HamburgerMenuIcon } from "@radix-ui/react-icons";
-import { getPostsMeta } from "@/lib/posts";
-import { usePathname } from "next/navigation";
 
 const Navbar = () => {
-  const pathname = usePathname();
   const [position, setPosition] = useState("bottom");
 
   return (
-    <header className="w-full h-25 flex items-center justify-between">
+    <header className="mx-auto flex items-center justify-between max-w-7xl px-2 sm:px-6 lg:px-8">
       <Logo />
       <DropdownMenu>
         <DropdownMenuTrigger asChild>

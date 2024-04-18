@@ -6,6 +6,7 @@ import Footer from "@/components/footer";
 
 import type { Metadata } from "next";
 import { GeistSans } from "geist/font/sans";
+import { Toaster } from "@/components/ui/sonner";
 
 export const metadata: Metadata = {
   title: "Create Next App",
@@ -26,6 +27,7 @@ export default function RootLayout({
           <Navbar />
           {children}
         </main>
+        <Toaster expand={true} />
         <Footer />
       </body>
     </html>

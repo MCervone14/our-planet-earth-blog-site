@@ -13,24 +13,27 @@ const LaudatoSiCategories = [
     color: "bg-green-700",
     icon: "/LSAP/LSAP_1_Response_to_the_Cry_of_the_Earth-1.png",
     image: "/images/earth-hour.jpg",
+    keywords: ["earth", "climate", "biodiversity", "sustainability"],
   },
   {
     id: "1",
     title: "RESPONSE TO THE CRY OF THE POOR",
     description:
-      "The Response to the Cry of the Poor is a call to promote eco-justice, aware that we are called to defend human life from conception to death, and all forms of life on Earth. Actions could include projects to promote solidarity, with special attention given to vulnerable groups such as indigenous communities, refugees, migrants, and children at risk, analysis and improvement of social systems, and social service programmes.",
+      "The Response to the Cry of the Poor is a call to promote eco-justice, aware that we are called to defend human life from conception to death, and all forms of life on Earth. Actions could include projects to promote solidarity, with special attention given to vulnerable groups such as indigenous communities, refugees, migrants, and children at risk, analysis and improvement of social systems, and social service programs.",
     color: "bg-yellow-700",
     icon: "/LSAP/LSAP_2_Response_to_the_Cry_of_the_Poor-370x370.png",
     image: "/images/Larm-Rmah-icon-photo.jpg",
+    keywords: ["justice", "solidarity", "vulnerable"],
   },
   {
     id: "2",
     title: "ECOLOGICAL ECONOMICS",
     description:
-      "Ecological Economics acknowledges that the economy is a sub-system of human society, which itself is embedded within the biosphere–our common home. Actions could include sustainable production and consumption, ethical investments, divestment from fossil fuels and any activity harmful to the planet and the people, supporting circular economies, and prioritizing care labour and protecting the dignity of workers.",
+      "Ecological Economics acknowledges that the economy is a sub-system of human society. Actions could include sustainable production and consumption, ethical investments, divestment from fossil fuels and any activity harmful to the planet and the people, supporting circular economies, and prioritizing care labor and protecting the dignity of workers.",
     color: "bg-purple-700",
     icon: "/LSAP/LSAP_3_Ecological_Economics-1.png",
     image: "/images/Appolinary-Kalashnikova-icon-photo.jpg",
+    keywords: ["economics", "sustainable", "consumption"],
   },
   {
     id: "3",
@@ -40,6 +43,7 @@ const LaudatoSiCategories = [
     color: "bg-yellow-300",
     icon: "/LSAP/LSAP_4_Adoption_of_Sustainable_Lifestyles-1.png",
     image: "/images/Didier-Weemaels-icon-photo.jpg",
+    keywords: ["sustainable", "lifestyles", "sufficiency"],
   },
   {
     id: "4",
@@ -49,15 +53,17 @@ const LaudatoSiCategories = [
     color: "bg-red-700",
     icon: "/LSAP/LSAP_5_Ecological_Education-1.png",
     image: "/images/Parker-Gibbons-icon-photo.jpg",
+    keywords: ["education", "awareness", "action"],
   },
   {
     id: "5",
     title: "ECOLOGICAL SPIRITUALITY",
     description:
-      "Ecological Spirituality springs from a profound ecological conversion and helps us to “discover God in all things”, both in the beauty of creation and in the sighs of the sick and the groans of the afflicted, aware that the life of the spirit is not dissociated from worldly realities. Actions could include promoting creation-based liturgical celebrations, developing ecological catechesis, retreats and formation programmes, etc.",
+      "Ecological Spirituality springs from a profound ecological conversion and helps us to “discover God in all things”, both in the beauty of creation and in the sighs of the sick and the groans of the afflicted, aware that the life of the spirit is not dissociated from worldly realities. Actions could include promoting creation-based liturgical celebrations, developing ecological catechesis, retreats and formation programs, etc.",
     color: "bg-blue-700",
     icon: "/LSAP/LSAP_6_Ecological_Spirituality-1.png",
     image: "/images/Davide-Cantelli-icon-photo.jpg",
+    keywords: ["spirituality", "conversion", "creation"],
   },
   {
     id: "6",
@@ -67,6 +73,7 @@ const LaudatoSiCategories = [
     color: "bg-[steelblue]",
     icon: "/LSAP/LSAP_7_Community_Resilience_and_Empowerment-1.png",
     image: "/images/Chang-Duong-icon-photo.jpg",
+    keywords: ["resilience", "empowerment", "community"],
   },
 ];
 
@@ -74,9 +81,10 @@ const LaudatoSiGoals = () => {
   const [isSelected, setIsSelected] = useState("0");
   return (
     <div className="flex flex-col lg:flex-row w-full justify-center items-start gap-10 p-5">
-      <div className="flex flex-col gap-2">
+      <div className="flex flex-col gap-2 mx-auto w-full sm:w-fit">
         {LaudatoSiCategories.map((category) => (
           <Button
+            className="p-5"
             variant="default"
             key={category.id}
             onClick={() => setIsSelected(category.id)}
@@ -95,8 +103,6 @@ const LaudatoSiGoals = () => {
               alt={category.title}
               width={200}
               height={200}
-              placeholder="blur"
-              blurDataURL={category.image}
               className="object-cover p-5 mx-auto  rounded-xl"
             />
             <p className="bg-white bg-opacity-70 w-full lg:w-1/2 mx-auto rounded p-5">
@@ -105,8 +111,11 @@ const LaudatoSiGoals = () => {
             <Image
               src={category.image}
               alt={category.title}
+              placeholder="blur"
+              blurDataURL={category.image}
               fill
               className="object-cover rounded-xl -z-10"
+              priority
             />
           </div>
         ))}
